@@ -47,6 +47,7 @@ function runTurn(letter) {
         player.score -= 1;
         updateScore();
     }
+    document.getElementById('UserInput').value = ''
 };
 
 function countLetter (tab, letter) {
