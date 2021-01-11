@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!--Top Banner-->
+        <div class='container-fluid'>
+            <div class='jumbotron'>
+                <h1 class='display-4 text-center'>WORD FINDER</h1>
+                <p class='lead text-center'>Challenge your friend by finding the hidden word quickly!</p>
+            </div>
+        </div>
+        <!--Game-->
+        <div class='container' id='GameBoard'>
+            <!--Word to find-->
+            <div class='row text-center' id='WordFind'>
+                <div class='col-2 let_find' id='Letter0'> </div>
+                <div class='col-2 let_find' id='Letter1'> </div>
+                <div class='col-2 let_find' id='Letter2'> </div>
+                <div class='col-2 let_find' id='Letter3'> </div>
+                <div class='col-2 let_find' id='Letter4'> </div>
+                <div class='col-2 let_find' id='Letter5'> </div>
+            </div>
+            <div class='row' id='Actions'>
+                <!--Number of test-->
+                <div class='col-6'>
+                    <p class='text-center' id='try'> </p>
+                </div>
+                <!--Player input-->
+                <div class='col-6'>
+                    <form>
+                        <div class='form-group'>
+                            <label for='UserInput'>Choose a letter</label>
+                            <input type='text' class='form-control' id='UserInput' placeholder="e.g. 'e'">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <!--Game buttons-->
+            <div class='row' id='GameBtn'>
+                <div class='col-6 text-center' id='NewGameBtn'>
+                    <button type='button' class='btn btn-outline-danger btn-lg'>New Game</button>
+                </div>
+                <div class='col-6 text-center'>
+                    <button type='button' class='btn btn-outline-success btn-lg' id='EnterAnswerBtn'>Enter</button>
+                </div>
+            </div>
+
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src='script.js'></script>
+</html>
