@@ -9,7 +9,7 @@ const words = ['POMMES', 'ANANAS', 'FRUITS', 'POIRES', 'CUSTOM', 'CREATE',
                 'LESSON', 'MATURE', 'LISTEN', 'MATURE', 'MEMBER', 'MARGIN',
                 'MEDIUM', 'MUSEUM', 'NARROW', 'NATION', 'NATIVE', 'NOBODY',
                 'PATENT', 'PACKED', 'ORANGE', 'OBJECT', 'PARENT', 'PERIOD',
-                'PEOPLE', 'OFFICE', 'NIGHTS', 'OBJECT', 'PLEASE', 'RARELY',
+                'PEOPLE', 'OFFICE', 'NIGHTS', 'PLEASE', 'RARELY', 'MEMORY',
                 'READER', 'REALLY', 'RANDOM', 'ONLINE', 'POCKET', 'PREFER',
                 'PROPER', 'PROFIT', 'READER', 'REMOVE', 'RETURN', 'RIDING',
                 'SALARY', 'ROBUST', 'SAFETY', 'SAMPLE', 'SAVING', 'SCREEN',
@@ -20,7 +20,7 @@ const words = ['POMMES', 'ANANAS', 'FRUITS', 'POIRES', 'CUSTOM', 'CREATE',
                 'TALENT', 'VALLEY', 'TWENTY', 'WEALTH', 'WALKER', 'WEIGHT',
                 'UNITED', 'VICTIM', 'WINDOW', 'WINNER', 'WINTER', 'WRITER',
                 'YELLOW', 'WORKER', 'STUDIO', 'SUFFER', 'SUPPLY', 'SUMMER',
-                'SILVER', 'REDUCE', 'REGION', 'RESULT', 'RECORD', 'MEMORY'];
+                'SILVER', 'REDUCE', 'REGION', 'RESULT', 'RECORD'];
 var word;
 var player;
 var cnt = 0;
@@ -59,6 +59,7 @@ function initGame() {
     word = words[Math.floor(Math.random() * words.length)];
     victory = false;
     defeat = false;
+    cnt = 0;
     updateScore();
     updateConsole('newG');
 };
