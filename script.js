@@ -161,6 +161,7 @@ function cleanHtml() {
     for (let i = 0; i < 6; i++) {
         document.getElementById('Letter' + i).innerHTML = '';
     }
+    document.getElementById('usedLetters').innerHTML = '';
 };
 
 function cleanInput() {
