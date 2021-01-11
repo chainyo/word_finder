@@ -1,9 +1,31 @@
 // Words
-const words = ['POMMES', 'ANANAS', 'FRUITS'];
+const words = ['POMMES', 'ANANAS', 'FRUITS', 'POIRES', 'CUSTOM', 'CREATE', 
+                'DEBATE', 'DEMAND', 'DEVICE', 'DIFFER', 'ELEVEN', 'DOUBLE',
+                'DRIVER', 'DINNER', 'EFFECT', 'EMPLOY', 'ENTIRE', 'FACTOR', 
+                'FAMOUS', 'FEMALE', 'FLIGHT', 'EXPAND', 'FAMILY', 'EXPORT',
+                'FISCAL', 'FINGER', 'FIGURE', 'FORMAL', 'GARDEN', 'GLOBAL',
+                'GROUND', 'HEALTH', 'JUNIOR', 'KILLED', 'IMPORT', 'HOLDER',
+                'GOLDEN', 'FORGET', 'LEAGUE', 'MANUAL', 'MAKING', 'LEGACY',
+                'LESSON', 'MATURE', 'LISTEN', 'MATURE', 'MEMBER', 'MARGIN',
+                'MEDIUM', 'MUSEUM', 'NARROW', 'NATION', 'NATIVE', 'NOBODY',
+                'PATENT', 'PACKED', 'ORANGE', 'OBJECT', 'PARENT', 'PERIOD',
+                'PEOPLE', 'OFFICE', 'NIGHTS', 'OBJECT', 'PLEASE', 'RARELY',
+                'READER', 'REALLY', 'RANDOM', 'ONLINE', 'POCKET', 'PREFER',
+                'PROPER', 'PROFIT', 'READER', 'REMOVE', 'RETURN', 'RIDING',
+                'SALARY', 'ROBUST', 'SAFETY', 'SAMPLE', 'SAVING', 'SCREEN',
+                'SEARCH', 'SCHOOL', 'SEXUAL', 'SIGNAL', 'SILENT', 'SIMPLE',
+                'STEADY', 'SPEECH', 'STABLE', 'STATUS', 'SPRING', 'TENNIS',
+                'VISION', 'THEORY', 'TARGET', 'TRAVEL', 'TREATY', 'TICKET',
+                'VENDOR', 'UNABLE', 'TWELVE', 'UPDATE', 'TIMING', 'THANKS',
+                'TALENT', 'VALLEY', 'TWENTY', 'WEALTH', 'WALKER', 'WEIGHT',
+                'UNITED', 'VICTIM', 'WINDOW', 'WINNER', 'WINTER', 'WRITER',
+                'YELLOW', 'WORKER', 'STUDIO', 'SUFFER', 'SUPPLY', 'SUMMER',
+                'SILVER', 'REDUCE', 'REGION', 'RESULT', 'RECORD', 'MEMORY'];
 var word;
 var player;
 var cnt = 0;
 var victory;
+var defeat;
 
 // Html link
 const newGameBtn = document.getElementById('NewGameBtn');
@@ -12,7 +34,7 @@ const enterBtn = document.getElementById('EnterAnswerBtn');
 // Events listener
 enterBtn.addEventListener('click', function() {
     let answer = document.getElementById('UserInput').value.toUpperCase();
-    if (answer.length = 1 && player.score > 0 && victory == false) {
+    if (answer.length = 1 && player.score > 0 && victory == false && defeat == false) {
         runTurn(answer);
     }
     else {
@@ -36,6 +58,7 @@ function initGame() {
     player = new Player(7);
     word = words[Math.floor(Math.random() * words.length)];
     victory = false;
+    defeat = false;
     updateScore();
     updateConsole('newG');
 };
@@ -102,30 +125,33 @@ function updateConsole(kword, letter, len=0) {
         let bad = document.createTextNode(`The letter ${letter} is not in the word.`);
         li.appendChild(bad);
         li.classList.add("consoleB");
-        ul.prepend(li);
     }
     else if (kword == 'newG') {
         let newG = document.createTextNode('You started a new game.');
-        li.appendChild(newG);aq
+        li.appendChild(newG);
+        li.classList.add('consoleNG')
     }
     else if (kword == 'errLen') {
         let errLen = document.createTextNode('Error: you must enter only one letter.')
         li.appendChild(errLen);
         li.classList.add('consoleErr');
-        ul.prepend(li);
     }
     else if (kword == 'victory') {
         let vict = document.createTextNode('Victory!');
         li.appendChild(vict);
         li.classList.add('consoleVict');
-        ul.prepend(li)
     }
     else if (kword == 'restart') {
         let restart = document.createTextNode('You should restart the game.');
         li.appendChild(restart);
         li.classList.add('consoleRes');
-        ul.prepend(li);
     }
+    else if (kword == 'defeat') {
+        let defeat = document.createTextNode(`You lose. The right word was: ${word}`);
+        li.appendChild(defeat);
+        li.classList.add('consoleDef');
+    }
+    ul.prepend(li);
 }
 function restartGame() {
     initGame();
@@ -145,6 +171,10 @@ function checkVictory() {
     if (cnt == 6) {
         updateConsole('victory');
         victory = true;
+    }
+    else if (player.score == 0) {
+        updateConsole('defeat')
+        defeat = true;
     }
 }
 
